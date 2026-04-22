@@ -1,0 +1,117 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 0 0% 0%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
+  }
+  
+  @keyframes slideInLeft {
+    from { 
+      transform: translateX(-10%);
+      opacity: 0;
+    }
+    to { 
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out;
+  }
+  
+  @keyframes slideInRight {
+    from { 
+      transform: translateX(10%);
+      opacity: 0;
+    }
+    to { 
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    40% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+      transform: translateY(-5px) translateX(-50%);
+    }
+  }
+  
+  .menu-item {
+    @apply relative text-lg;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-item::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary;
+    transition: width 0.3s ease;
+  }
+  
+  .menu-item:hover::after,
+  .menu-item.active::after {
+    @apply w-full;
+  }
+}
