@@ -13,36 +13,42 @@ type Skill = {
 const SkillsSection = () => {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
   
-  const skills: Skill[] = [
+  const skills: Skill[] = [   
     {
       name: 'Systemnahe Programmierung',
       years: 5,
-      description: 'Hauptschwerpunkt meiner Erfahrung, das Entwicklen auf Mikrocontrollern',
-      details: 'Hauptschwerpunkt ist die Mehrjährige Erfahrung in der systemnahen Programmierung mit fundierten Kenntnissen in C, C++ und Rust. Entwicklung von Echtzeitanwendungen auf Mikrocontrollern, unter anderem mit FreeRTOS, sowie Umsetzung von Regelanwendungen auf Basis von Messwerten aus einer Vielzahl von Sensoren.'
+      description: 'Fundierte Erfahrung mit eingebetteten Systemen',
+      details: 'Durch die Arbeit in der systemnahen Programmierung konnte ich fundierte Kenntnisse in C, C++ und Rust aufbauen. Dabei arbeitete ich routiniert mit Echtzeitsystemen und einem breiten Spektrum von Kommunikationsprotokollen. Diese Anwendungen waren meist für das Messen physikalischer Größen durch unterschiedlichste Sensoren verantwortlich. Meine Erfahrung beschränkt sich hierbei nicht auf die Basics sondern reicht bis zu höheren Themen wie Makroprogrammierung, Generics und mehr.',
     },
     {
-      name: 'Fullstack Development',
+      name: 'Fullstack Entwicklung',
       years: 3,
-      description: 'Building responsive and interactive web applications',
-      details: '6 years of hands-on experience with React, TypeScript, and modern frontend frameworks. Expert in responsive design, performance optimization, and state management. Built scalable applications serving thousands of users daily with focus on clean, maintainable code.'
+      description: 'Moderne Systeme erfordern moderne Benutzeroberflächen',
+      details: 'Ich bin versiert im Arbeiten mit Webtechnologien wie TypeScript, React oder Svelte. Dabei umfassten meine Tätigkeiten den gesamten Prozess – vom Design und der Umsetzung von UI-Komponenten bis zur Anbindung an eigens entwickelte Module auf Embedded-Systemen oder Datenbanken.'
     },
-    {
+        {
       name: 'Linux Systeme',
-      years: 2,
-      description: 'Capturing moments and telling stories through images',
-      details: 'A decade of photography experience spanning portrait, landscape, and commercial work. Proficient in both digital and film photography, with expertise in Adobe Lightroom and Photoshop. Published work in various magazines and collaborated with brands on visual storytelling campaigns.'
-    },
+      years: 3,
+      description: 'Das komplette Feld der Linux Entwicklung',
+      details: 'Egal ob im Server, Desktop oder Embedded-Bereich – Linux ist heute überall. Ich arbeitete bereits mit unterschiedlichsten Technologien wie Debian, Yocto oder NixOS. Dabei reicht mein Wissen von einfacher Feature entwicklung bis zum zusammenstellen eigener Systeme.'
+    },/*
     {
-      name: 'Brand Strategy',
+      name: 'Objektorientierte Programmierung',
+      years: 2,
+      description: 'Umgang mit Klassenstrukturen',
+      details: 'Objektorientiertes Design war in meinen Projekten nie explizit gefordert - aus reiner persönlicher Präferenz wählte ich aber C# für einige berufliche und private Projekte. Dabei arbeitete ich mit gängigen Konzepten wie Kapselung, Polymorphismus und Abstraktion.'
+    },*/
+    {
+      name: 'Agile Teamarbeit & Scrum',
       years: 5,
-      description: 'Developing cohesive brand identities and strategies',
-      details: '5 years of experience in brand development, from startup identity creation to established brand refreshes. Skilled in market research, competitive analysis, and creating comprehensive brand guidelines. Successfully launched 20+ brands across various industries.'
+      description: 'Kollaboratives Arbeiten nach agilen Methoden',
+      details: 'Ich arbeite routiniert mit agilen Methoden, insbesondere Scrum – von Sprint-Planung und Daily Standups bis hin zu Retrospektiven. Dabei arbeite ich eigenverantwortlich und eng mit anderen Rollen wie Entwicklern und Product Ownern zusammen.'
     }
   ];
   
   return (
     <section id="skills" className="min-h-screen flex flex-col justify-center py-16">
-      <h2 className="text-3xl font-bold mb-8">Meine Erfahrung</h2>
+      <h2 className="text-3xl font-bold mb-8">Erfahrung</h2>
       <Separator className="mb-8" />
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

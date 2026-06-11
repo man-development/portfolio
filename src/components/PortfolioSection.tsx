@@ -19,81 +19,95 @@ type PortfolioItem = {
 };
 
 const portfolioItems: PortfolioItem[] = [
-  {
+      {
     id: 1,
-    title: 'Regelungsanwendung',
-    category: 'Fullstack + Embedded Development',
+    title: 'Microcontrollerbasierte Frischwasseregelung',
+    category: 'Systemnahe Entwicklung',
+    images: [
+      'mcu.jpeg',
+    ],
+    description: 'Eine smarte firschwasserregelung abgebildet auf einfacher AVR Hardware. Für die Regelung wurden Konzepte wie PID-Regler, Dreipunktregelung und Neuronale Netze verwendet. Auch Methoden zur Codegenerierung wie Simulink wurden verwendet.',
+    technologies: [
+      { name: 'C' },
+      { name: 'AVR', url: 'https://www.microchip.com/en-us/products/microcontrollers/8-bit-mcus/avr-mcus' },
+      { name: 'Modbus', url: ' https://www.modbus.org/'},
+      { name: 'I²C', url: 'https://de.i2c-bus.org/' },
+      { name: 'Simulink', url: 'https://de.mathworks.com/help/simulink/modeling.html' },
+      { name: 'UART' },
+    ],
+    duration: 'Über 5 Jahre',
+    role: 'Embedded Entwickler',
+details: [
+  'Vernetzung mehrerer Geräte über Modbus (z. B. für Kaskadenschaltungen).',
+  'MCU-Konfiguration durch Setzen von Bits in Hardwareregistern (Prescaler, Timer-Modi, Free-Running-Mode).',
+  'Kommunikation mit Ethernet-SoC über UART (zur Anbindung an Smart-Netze).',
+  'Messen von Temperaturen über ADCs.',
+  'I²C-Kommunikation mit RTC und Multiplexer.',
+  'Interruptbasierte Frequenzmessung (u. a. für PWM).',
+]
+  },
+    {
+    id: 2,
+    title: 'Heizregler Ökosystem',
+    category: 'Fullstack + Embedded Entwicklung',
     images: [
       'int.jpeg',
     ],
-    description: 'Eine Webanwendung zum Steuern komplexer Gebäudeheizungen.',
+    description: 'Ein Eigenständiges Hardware-Ökusystem zum Steuern komplexer Gebäudeheizungen. Das System besteht aus unterschiedlichen Plattformen, welche per CAN-Bus miteinander kommunizieren und von der Kern-Webanwendung welche Konfigurationen erhalten. Diese nutzen Sie um zur Laufzeit ein Netz aus Regelungsfunktionsmodule aufzubauen und auszuführen.',
     technologies: [
       { name: 'Rust', url: 'https://rust-lang.org/' },
       { name: 'React', url: 'https://react.dev/' },
       { name: 'AntD', url: 'https://ant.design/' },
       { name: 'Webdesign' },
       { name: 'prometheus', url: 'https://prometheus.io/' },
+      { name: 'ARM Cortex' },
+      { name: 'SPI' },
+      {name: 'EFM32'},
+      { name: 'CAN-Bus', url: 'https://www.me-systeme.de/de/canbus' },
     ],
     duration: '1,5 Jahre',
     role: 'Entwickler / Designer',
-    details: 'Kern der Anwendung war ein System welche Konfigurationen per CAN-BUS an verteile Mikrocontroller sendet. Diese führen basierend auf der zugesendeten Konfiguartion Funktionsmodule aus welche für Regelfunktionen aller Art genutzt werden können. Anschließend senden sie die Ergebnisse zurück an die Anwendung, wo sie für den Kunden dargestellt werden.'
+    details: 'Der ESP32 lässt verschiedene Funktionsmodule in einer Runtime laufen. Basierend darauf werden die Ausgänge der Platine geschalten, indem die Pinzustände per SPI an einen EFM32 gesendet werden, werlcher diese setzt.'
   },
   {
-    id: 2,
-    title: 'E-commerce Website',
-    category: 'Development',
-    images: [
-      'https://images.unsplash.com/photo-1661956602944-249bcd04b63f?q=80&w=1470&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1470&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1470&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1470&auto=format&fit=crop',
-    ],
-    description: 'A full-stack e-commerce platform built with modern web technologies. Features include user authentication, payment processing, inventory management, and an admin dashboard.',
-    technologies: [
-      { name: 'React', url: 'https://www.google.com' },
-      { name: 'Node.js', url: 'https://www.google.com' },
-      { name: 'MongoDB', url: 'https://www.google.com' },
-      { name: 'Stripe', url: 'https://www.google.com' },
-      { name: 'Tailwind CSS' },
-    ],
-    duration: '6 months',
-    role: 'Full Stack Developer',
-    details: 'Built with a microservices architecture, the platform handles over 10,000 products and processes hundreds of transactions daily. Implemented features like real-time inventory updates, advanced search filters, wishlist functionality, and automated email notifications.'
-  },
-  {
-    id: 3,
-    title: 'Touchscreen Displays',
-    category: 'Linux Entwicklung + Management',
-    images: [
-      'X3-group-image.png',
-      'schaltschraenke.jpeg',
-    ],
-    description: 'Schaltschrank Displays wurden mehrere Jahre in vielerlei Kombinationen von Hardware, Betriebssystemen und Anwendungssoftware undokumentiert ausgeliefert. Ich nahm mich diesem Projekt an, und sorgte neben neuen Features auch für Stabilitätsverbesserungen, bessere Dokumentation und klaren Prozessabläufen. ',
-    technologies: [
-      { name: 'Yocto Linux', url: 'https://www.yoctoproject.org/' },
-      { name: 'CI/CD Pipelines', url: 'https://docs.gitlab.com/ci/' },
-      { name: 'QT Webengine', url: 'https://doc.qt.io/qt-6/qtwebengine-index.html' },
-    ],
-    duration: '2,5 Jahre - Teilzeit',
-    role: 'Technischer Direktor / Entwickler',
-    details: [
-      'Produktionsumgebung: Umstellung von undokumentierten Shell Scripten auf eigene Konfigurationsanwendung',
-      'Einführung von Versionsverwaltung',
-      'Automatiserte Softwarebuilds durch CI/CD Pipelines',
-      'Marktanalyse: Suchen alternativer Hersteller unter Beachung von Ausschlusskriterien (z.B UL-Zertifikate)',
-      'Browserentwicklung auf chromiumbasis mit der QT Webengine',
-      'Linux Feature Entwicklung: Bildschrimschoner, Bootlogos, cronjobs',
-      'Bugfixes: Memory leaks, fehlerhaftes caching, Verbindungsabbrüche',
-    ]
-  },
-  {
+  id: 3,
+  title: 'Embedded Linux für Touchscreen HMIs',
+  category: 'Linux Entwicklung + Management',
+  images: [
+    'hmi.png',
+  ],
+  description: 'Aufgabe war die Verwaltung und Weiterentwicklung einer breiten Palette von Touchscreen-Displays unterschiedlicher Hersteller. Neben der Pflege der Linux-Basis wurden Build-Systeme, Update-Mechanismen und Konfigurationswerkzeuge modernisiert, um Wartbarkeit, Stabilität und langfristige Skalierbarkeit sicherzustellen.',
+  technologies: [
+    { name: 'Yocto Linux', url: 'https://www.yoctoproject.org/' },
+    { name: 'CI/CD Pipelines', url: 'https://docs.gitlab.com/ci/' },
+    { name: 'QT Webengine', url: 'https://doc.qt.io/qt-6/qtwebengine-index.html' },
+    { name: 'RAUC', url: 'https://rauc.io/' },
+    { name: 'rpi-image-gen', url: 'https://github.com/raspberrypi/rpi-image-gen' },
+    { name: 'NXP i.MX536 | ARM Cortex-A8'},
+    { name: 'NXP i.MX6 | ARM Cortex-A9', url: 'https://www.nxp.com/products/i.MX6Q?cid=ps_PRG100148_CAM262037_EETECH' },
+    
+  ],
+  duration: '3 Jahre - Teilzeit',
+  role: 'Technischer Direktor / Entwickler',
+  details: [
+    'Pflege der Yocto Meta-Layer-Struktur sowie Entwicklung und Wartung von BitBake-Rezepten',
+    'Anpassung und Erweiterung von Device-Tree-Overlays für unterschiedliche Hardwareplattformen',
+    'Implementierung von RAUC A/B-Update-Systemen inklusive Delta-Updates',
+    'Analyse und Auflösung von Treiber- und Paketabhängigkeiten im Build-System',
+    'Browserentwicklung mit Chromium und der Qt WebEngine',
+    'Migration von Shell-Skripten zu vollwertigen Konfigurationsanwendungen',
+    'Einführung und Pflege von Versionsverwaltungs- und Release-Prozessen',
+    'Linux-Basisentwicklung: Systemd-Services, Ressourcenüberwachung und Netzwerkverwaltung',
+  ]
+},
+    {
     id: 4,
-    title: 'ESP32 Messgerät',
+    title: 'ESP32 basierte Laborüberwachung',
     category: 'Systemnahe Entwicklung',
     images: [
-      '/esp32.jpeg',
+      'esp32.jpeg',
     ],
-    description: 'Ziel war, bestimmte physischen Größen wie Temperatur, Druck oder Volumenstrom in einer Testumgebung zu erfassen und aufzuzeichnen. Hierfür wurde eine Anwendung erstellt, welche die gemessenen Werte via WebSocket-Server an beliebige Clients überträgt. ',
+    description: 'Um in einem Labor physische Größen wie Temperatur, Druck oder Volumenstrom zu erfassen und aufzuzeichnen wurde eine eigene Hardwareplattform geschaffen. Hierfür wurde anschließend eine Anwendung erstellt, welche die gemessenen Werte via WebSocket-Server an beliebige Clients überträgt. ',
     technologies: [
       { name: 'FreeRTOS', url: 'https://www.freertos.org/Documentation/00-Overview'},
       { name: 'C' },
@@ -109,6 +123,25 @@ const portfolioItems: PortfolioItem[] = [
       'Für den Server wurde esp_http_server, ein nativer ESP HTTP Stack, verwendet.',
       'Die Werte werden verteilt über 4 ADC-Eingänge und 2 Interruptzähler gemessen.',
     ]
+  },
+  {
+    id: 5,
+    title: 'Konfigurationsanwendung für Linuxgeräte',
+    category: 'Fullstack Entwicklung',
+    images: [
+      'config-tool.jpeg',
+    ],
+    description: 'Eine Plattformunabhängige Anwendung zum Konfigurieren von Linuxgeräten.',
+    technologies: [
+      { name: 'Rust', url: 'https://rust-lang.org/' },
+      { name: 'Svelte', url: 'https://svelte.dev/' },
+      { name: 'SvelteKit', url: 'https://svelte.dev/docs/kit/introduction' },
+      { name: 'Linux' },
+      { name: 'Tauri', url: 'https://v2.tauri.app/' },
+    ],
+    duration: '2 Monate',
+    role: 'Product Owner / Entwickler',
+    details: 'Die Anwendung bietet die Möglichkeit Softwarepakete für bestimmte Systeme abzulegen. Wird ein passendes System per Ethernet erkannt, werden zur Installation verfügbare Softwarepakete angezeigt. Dabei kann sehr präzise eingestellt werden welche Softwarepakete auf welchem System angewendet werden können. (u. a. Betriebssystem, IP-Range, Produkthersteller, SSH-Credentials)'
   },
 ];
 const PortfolioSection = () => {

@@ -6,24 +6,27 @@ type MenuItem = {
   id: string;
   label: string;
 };
+type Props = {
+  onNavigate?: () => void;
+};
 
-const Navigation = () => {
+const Navigation = ({ onNavigate }: Props) => {
   const [activeSection, setActiveSection] = useState('home');
   
   const menuItems: MenuItem[] = [
     { id: 'home', label: 'Überblick' },
     { id: 'about', label: 'Über mich' },
-    { id: 'skills', label: 'Fähigkeiten' },
+    { id: 'skills', label: 'Erfahrung' },
     { id: 'portfolio', label: 'Portfolio' },
-    { id: 'contact', label: 'Kontakt' }
   ];
   
-  const scrollToSection = (id: string) => {
+ const scrollToSection = (id: string) => {
     setActiveSection(id);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    onNavigate?.(); // ← close menu
   };
   
   return (
